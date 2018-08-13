@@ -13,6 +13,7 @@ Tested software frameworks
 
 Dependencies:
 ARM Streamline Performance Analyser : https://developer.arm.com/products/software-development-tools/ds-5-development-studio/streamline
+Version used: Linux 64-bit 5.28.1
 
 - ARM energy probe: (Required only for Snapdragon 820 as the Jetson TX1 comes with its on-board power monitoring sensor chip) : https://developer.arm.com/products/software-development-tools/ds-5-development-studio/streamline/arm-energy-probe
 
@@ -26,4 +27,4 @@ This tutorial is split into four phases:
 
 
 ## Part 1: Setting up power measurement equipment
-                        
+### Jetson TX1: Power sensor chip
