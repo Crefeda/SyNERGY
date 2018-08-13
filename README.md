@@ -3,7 +3,7 @@
 This framework can be used to provide per-layer energy and performance measurements in a pre-trained Caffe/Caffe2 ConvNet model.
 
 Tested platforms: 
-- Jetson TX1: Ubuntu 16.04
+- Jetson TX1: Ubuntu 16.04, Linux kernel: 4.4.38+
 - Snapdragon 820: Android 7.0
 
 Tested software frameworks
