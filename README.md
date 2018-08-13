@@ -3,8 +3,8 @@
 This framework can be used to provide per-layer energy and performance measurements in a pre-trained Caffe/Caffe2 ConvNet model.
 
 Tested platforms: 
--Jetson TX1: Ubuntu 16.04
--Snapdragon 820: Android 7.0
+- Jetson TX1: Ubuntu 16.04
+- Snapdragon 820: Android 7.0
 
 Tested software frameworks
 - Caffe + OpenBLAS backend
@@ -25,5 +25,5 @@ This tutorial is split into four phases:
 4. Take power measurements & calculate per-layer energy
 
 
-
+## Part 1: Setting up power measurement equipment
                         
