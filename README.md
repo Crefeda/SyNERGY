@@ -42,7 +42,7 @@ This tutorial is split into four phases:
 ### Enable INA3221 power sensor chip on the Jetson TX1
 This consists mainly of two steps:
 
-	- Cross-compile & flash a modified linux kernel to enable a loadable gator module and enable the INA3221 power sensor chip
+	- Cross-compile & flash a modified linux kernel. In this step, we enable a loadable gator module and the INA3221 power sensor chip
 
 	- Build the gator module
 
