@@ -38,7 +38,7 @@ This tutorial is split into four phases:
 	- Script to read power values from sysfs (or ina3221x@40 entry in the file system )
 
 
-## Part 1: Setting up power measurement equipment
+## Part 1: Setting up the power measurement equipment
 ### Enable INA3221 power sensor chip on the Jetson TX1
 This consists mainly of two steps:
 
