@@ -14,17 +14,22 @@ Tested software frameworks
 Dependencies:
 	1) ARM Streamline Performance Analyser : https://developer.arm.com/products/software-development-tools/ds-5-development-studio/streamline (Version used: Linux 64-bit 5.28.1)
 
-	2) ARM energy probe: (Required only for Snapdragon 820 as the Jetson TX1 comes with its on-board power monitoring sensor chip)
+	2) ARM energy probe: 
+
+Note: This is required only for Snapdragon 820 as the Jetson TX1 comes with its on-board power monitoring sensor chip.
+
 Link: https://developer.arm.com/products/software-development-tools/ds-5-development-studio/streamline/arm-energy-probe
 
 This tutorial is split into four phases:
 1. Prepare the power measurement equipement: 
- 	- Enable INA3221 power sensor chip on the TX1
+ 	- Enable INA3221 power sensor chip on the Jetson TX1
 	- ARM energy probe for the Snapdragon 820
 
 2. Install ARM streamline tool on host and gator daemon on the host
 	- Installing DS-5v5.28.1 for ARM streamline, Eclipse for DS-5
-	- Build the gator daemon (This communicates with the ARM Streamline tool)
+	- Build the gator daemon (gatord). Note: This communicates with the ARM Streamline tool.
+		- gator daemon for the TX1 (linux version)
+		- gator daemon for the Snapdragon 820 (android version)
 
 3. Integrate ARM Streamline with Caffe/Caffe2
 	- ARM Streamline annotations task
@@ -34,7 +39,7 @@ This tutorial is split into four phases:
 
 
 ## Part 1: Setting up power measurement equipment
-### Jetson TX1: Power sensor chip
+### Enable INA3221 power sensor chip on the Jetson TX1
 This consists mainly of two steps:
 
 	- Cross-compile & flash a modified linux kernel to enable a loadable gator module and enable the INA3221 power sensor chip
