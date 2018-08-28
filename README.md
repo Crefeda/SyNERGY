@@ -82,11 +82,22 @@ This consists mainly of two steps (please refer: https://developer.ridgerun.com/
 			- enable 1-0040 status = "okay"
 			- Convert it back to dtb (dtc -I dts -O dtb -o tegra210-jetson-tx1-p2597-2180-a01-devkit.dtb tegra210-jetson-tx1-p2597-2180-a01-devkit.dts) and transfer to /boot
 
-
+### ARM energy probe for the Snapdragon 820
+(In progress)
 ## Part 2: Install ARM streamline tool on host and gator daemon on the host
 ### Installing DS-5v5.28.1 for ARM streamline, Eclipse for DS-5
 
 ### Build the gator daemon (gatord). Note: This communicates with the ARM Streamline tool.
 #### gator daemon for the TX1 (linux version)
 #### gator daemon for the Snapdragon 820 (android version)
+(In progress)
+
+
+
+## Part 3: Integrate ARM Streamline with Caffe/Caffe2
+### ARM Streamline annotations task
+(In progress)
+## Part 4: Take power measurements & calculate per-layer energy
+### Script to read power values from sysfs (or ina3221x@40 entry in the file system )
+(In progress)
 
