@@ -2,19 +2,14 @@
 
 This framework can be used to provide per-layer energy and performance measurements in a pre-trained Caffe/Caffe2 ConvNet model. Please cite:
 
-@inproceedings{synergy,
-  title={SyNERGY: An energy measurement and prediction framework for Convolutional Neural Networks on Jetson TX1},
-  author={Rodrigues, Crefeda and Riley, Graham and La Lujan, Mikel},
-  booktitle={Proceedings of the 2018 International Conference on Parallel and Distributed Processing Techniques and Applications},
-  year={2018},
-  organization={CSREA Press}
-}
+## Sources
+1. Rodrigues C.F., Riley G., Lujan, M. "Fine-grained energy profiling for deep convolutional neural networks on the Jetson TX1" *University of Manchester, United Kingdom](https://ieeexplore.ieee.org/document/8167764/)
 
-Tested platforms: 
+#### Tested platforms: 
 - Jetson TX1: Ubuntu 16.04, Linux kernel: 4.4.38+
 - Snapdragon 820: Android 7.0
 
-Tested software frameworks
+#### Tested software frameworks
 - Caffe + OpenBLAS backend
 - Caffe2 + Eigen backend
 
