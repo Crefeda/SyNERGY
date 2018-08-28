@@ -74,13 +74,12 @@ This consists mainly of two steps (please refer: https://developer.ridgerun.com/
 		
 		
 	II) Modify the device tree to enable the ina3221x@40 entry
-		On the target Jetson TX1, in /boot/extlinux/extlinux.conf you will see configuration data for booting the board you will see it mention /boot/tegra210-jetson-tx1-p2597-2180-a01-devkit.dtb this is the dtb being used. 
-		On your host pc:
+		1. On the target Jetson TX1, note the dtb file being used in /boot/extlinux/extlinux.conf. 
+		2. On your host pc:
 			- sudo apt-get install device-tree-compiler
-			- copy /boot/tegra210-jetson-tx1-p2597-2180-a01-devkit.dtb to your host PC then
-			- dtc -I dtb -O dts -o tegra210-jetson-tx1-p2597-2180-a01-devkit.dts tegra210-jetson-tx1-p2597-2180-a01-devkit.dtb
-			- enable 1-0040 status = "okay"
-			- Convert it back to dtb (dtc -I dts -O dtb -o tegra210-jetson-tx1-p2597-2180-a01-devkit.dtb tegra210-jetson-tx1-p2597-2180-a01-devkit.dts) and transfer to /boot
+			- scp /boot/{correct}.dtb to your host PC
+			- Convert it into a dts source file (using dtc command) and edit 1-0040 entry to status = "okay"
+			- Convert it back to dtb (using dtc command) and transfer to /boot
 
 ### ARM energy probe for the Snapdragon 820
 (In progress)
