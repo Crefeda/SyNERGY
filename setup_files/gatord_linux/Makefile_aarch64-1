@@ -1,0 +1,12 @@
+#
+# Makefile for Arm Streamline - Gator Daemon
+# make -f Makefile_aarch64
+#
+
+# Uncomment and define CROSS_COMPILE if it is not already defined
+CROSS_COMPILE=/opt/linaro/gcc-linaro-5.5.0-2017.10-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-#cref
+
+CC = $(CROSS_COMPILE)gcc
+CXX = $(CROSS_COMPILE)g++
+
+include common.mk

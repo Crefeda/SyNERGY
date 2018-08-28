@@ -85,12 +85,16 @@ This consists mainly of two steps (please refer: https://developer.ridgerun.com/
 (In progress)
 ## Part 2: Install ARM streamline tool on host and gator daemon on the host
 ### Installing DS-5v5.28.1 for ARM streamline, Eclipse for DS-5
-
+	I) Download the DS-5 (Linux 64 bit) on your host machine and run ./install.sh file. The DS-5 Development will install Eclipse for DS-5v5.28.1 and ARM streamline application.
+	II) Activate the 30 day trial licence in Eclipse for DS-5v5.28.1
 ### Build the gator daemon (gatord). Note: This communicates with the ARM Streamline tool.
 #### gator daemon for the TX1 (linux version)
+	I) git clone gator daemon sources from https://github.com/ARM-software/gator
+		- cd daemon
+		- use the Makefile in setup_files/gatord_linux
+		- make -f Makefile_aarch64
 #### gator daemon for the Snapdragon 820 (android version)
 (In progress)
-
 
 
 ## Part 3: Integrate ARM Streamline with Caffe/Caffe2
