@@ -1,6 +1,14 @@
 # SyNERGY: An energy measurement and prediction framework for convolutional neural  networks (or ConvNets) on ARM mobile platforms
 
-This framework can be used to provide per-layer energy and performance measurements in a pre-trained Caffe/Caffe2 ConvNet model.
+This framework can be used to provide per-layer energy and performance measurements in a pre-trained Caffe/Caffe2 ConvNet model. Please cite:
+
+@inproceedings{synergy,
+  title={SyNERGY: An energy measurement and prediction framework for Convolutional Neural Networks on Jetson TX1},
+  author={Rodrigues, Crefeda and Riley, Graham and La Lujan, Mikel},
+  booktitle={Proceedings of the 2018 International Conference on Parallel and Distributed Processing Techniques and Applications},
+  year={2018},
+  organization={CSREA Press}
+}
 
 Tested platforms: 
 - Jetson TX1: Ubuntu 16.04, Linux kernel: 4.4.38+
