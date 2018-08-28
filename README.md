@@ -59,12 +59,12 @@ This consists mainly of two steps (please refer: https://developer.ridgerun.com/
 			-cd $DEVDIR/64_TX1/Linux_for_Tegra_tx1/sources/kernel_source/
 			-make mrproper
 		5. Build the gator.ko module
-		- Download the gator sources from https://github.com/ARM-software/gator
-		- cd /Downloads/Jetpack/64_TX1/Linux_for_tegra/sources/kernel_sources/driver/
-		- mkdir gator and  cp -r /path/to/gator/driver-src/* gator
-		- We have to edit Makefile and Kconfig file in kernel_sources/drivers. Edit Makefile in the kernel drivers folder and add obj-$(CONFIG_GATOR) += gator/ to the end 
+			- Download the gator sources from https://github.com/ARM-software/gator
+			- cd /Downloads/Jetpack/64_TX1/Linux_for_tegra/sources/kernel_sources/driver/
+			- mkdir gator and  cp -r /path/to/gator/driver-src/* gator
+			- We have to edit Makefile and Kconfig file in kernel_sources/drivers. Edit Makefile in the kernel drivers folder and add obj-$(CONFIG_GATOR) += gator/ to the end 
 
-		- Edit Kconfig in the kernel drivers folder and add source "drivers/gator/Kconfig" before the last endmenu.
+			- Edit Kconfig in the kernel drivers folder and add source "drivers/gator/Kconfig" before the last endmenu.
 		6. Configure your kernel
 			- sudo apt-get install libncurses-dev (This is required only once)
 			- make menuconfig & enable CONFIG_SENSORS_INA3221=y and CONFIG_GATOR=m (Refer:  https://github.com/ARM-software/gator for further details on kernel configurations required)
