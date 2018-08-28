@@ -91,8 +91,8 @@ This consists mainly of two steps (please refer: https://developer.ridgerun.com/
 #### gator daemon for the TX1 (linux version)
 	I) git clone gator daemon sources from https://github.com/ARM-software/gator
 		- cd daemon
-		- use the Makefile in setup_files/gatord_linux
-		- make -f Makefile_aarch64
+		- use the Makefile_aarch64-1 in setup_files/gatord_linux
+		- make -f Makefile_aarch64-1
 #### gator daemon for the Snapdragon 820 (android version)
 (In progress)
 
