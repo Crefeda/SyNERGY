@@ -47,7 +47,6 @@ This consists mainly of two steps (please refer: https://developer.ridgerun.com/
 		1. Download Jetpack-${version} and run the installation script (I used JetPack 3.1 - L4T 28.1):
 			-chmod +x JetPack-${VERSION}.run
 			- Run JetPack-${VERSION}.run
-			
 		2. Download the kernel sources:
 			-./source_sync.sh -k tegra-l4t-r28.1 -u tegra-l4t-r28.1
 		3. Download the toolchain and set the appropriate environment variables
@@ -55,7 +54,6 @@ This consists mainly of two steps (please refer: https://developer.ridgerun.com/
 			-export CROSS32CC=/opt/linaro/gcc-linaro-5.5.0-2017.10-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc
 			-export ARCH=arm64
 		4. Clean your kernel and configuration
-
 			-cd $DEVDIR/64_TX1/Linux_for_Tegra_tx1/sources/kernel_source/
 			-make mrproper
 		5. Build the gator.ko module
@@ -72,7 +70,6 @@ This consists mainly of two steps (please refer: https://developer.ridgerun.com/
 			- make zImage
 			- make dtbs
 			- make modules (This will create gator.ko file check kernel_sources/drivers/gator for this file)
-			
 		8. Follow steps 5- 11 in https://developer.ridgerun.com/wiki/index.php?title=Compiling_Tegra_X1/X2_source_code to make the new sources suitable for Jetpack and flash the new modified kernel.
 		
 		
