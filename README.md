@@ -35,7 +35,7 @@ This tutorial is split into four phases:
 		- gator daemon for the Snapdragon 820 (android version)
 
 3. Integrate ARM Streamline with Caffe/Caffe2
-	- ARM Streamline annotations task
+	- ARM Streamline annotation task
 
 4. Take power measurements & calculate per-layer energy
 	- Script to read power values from sysfs (or ina3221x@40 entry in the file system )
@@ -101,7 +101,7 @@ This consists mainly of two steps (please refer: https://developer.ridgerun.com/
 
 
 ## Part 3: Integrate ARM Streamline with Caffe/Caffe2
-### ARM Streamline annotations task
+### ARM Streamline annotation task
 (In progress)
 ## Part 4: Take power measurements & calculate per-layer energy
 ### Script to read power values from sysfs (or ina3221x@40 entry in the file system )
