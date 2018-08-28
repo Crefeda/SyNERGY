@@ -83,5 +83,10 @@ This consists mainly of two steps (please refer: https://developer.ridgerun.com/
 			- Convert it back to dtb (dtc -I dts -O dtb -o tegra210-jetson-tx1-p2597-2180-a01-devkit.dtb tegra210-jetson-tx1-p2597-2180-a01-devkit.dts) and transfer to /boot
 
 
-## Part 2: Setting up the power measurement equipment
-### Enable INA3221 power sensor chip on the Jetson TX1
+## Part 2: Install ARM streamline tool on host and gator daemon on the host
+### Installing DS-5v5.28.1 for ARM streamline, Eclipse for DS-5
+
+### Build the gator daemon (gatord). Note: This communicates with the ARM Streamline tool.
+#### gator daemon for the TX1 (linux version)
+#### gator daemon for the Snapdragon 820 (android version)
+
