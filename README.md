@@ -43,7 +43,7 @@ This tutorial is split into four phases:
 ### Enable INA3221 power sensor chip on the Jetson TX1
 This consists mainly of two steps (please refer: https://developer.ridgerun.com/wiki/index.php?title=Compiling_Tegra_X1/X2_source_code)
 
-	- Cross-compile & flash a modified linux kernel. In this step, we enable a loadable gator module and the INA3221 power sensor chip
+	I) Cross-compile & flash a modified linux kernel. In this step, we enable a loadable gator module and the INA3221 power sensor chip
 		1. Download Jetpack-${version} and run the installation script (I used JetPack 3.1 - L4T 28.1):
 			-chmod +x JetPack-${VERSION}.run
 			- Run JetPack-${VERSION}.run
@@ -73,7 +73,7 @@ This consists mainly of two steps (please refer: https://developer.ridgerun.com/
 		8. Follow steps 5- 11 in https://developer.ridgerun.com/wiki/index.php?title=Compiling_Tegra_X1/X2_source_code to make the new sources suitable for Jetpack and flash the new modified kernel.
 		
 		
-	- Modify the device tree to enable the ina3221x@40 entry
+	II) Modify the device tree to enable the ina3221x@40 entry
 		On the target Jetson TX1, in /boot/extlinux/extlinux.conf you will see configuration data for booting the board you will see it mention /boot/tegra210-jetson-tx1-p2597-2180-a01-devkit.dtb this is the dtb being used. 
 		On your host pc:
 			- sudo apt-get install device-tree-compiler
@@ -81,3 +81,7 @@ This consists mainly of two steps (please refer: https://developer.ridgerun.com/
 			- dtc -I dtb -O dts -o tegra210-jetson-tx1-p2597-2180-a01-devkit.dts tegra210-jetson-tx1-p2597-2180-a01-devkit.dtb
 			- enable 1-0040 status = "okay"
 			- Convert it back to dtb (dtc -I dts -O dtb -o tegra210-jetson-tx1-p2597-2180-a01-devkit.dtb tegra210-jetson-tx1-p2597-2180-a01-devkit.dts) and transfer to /boot
+
+
+## Part 2: Setting up the power measurement equipment
+### Enable INA3221 power sensor chip on the Jetson TX1
