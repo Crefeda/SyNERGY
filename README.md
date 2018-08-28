@@ -36,14 +36,42 @@ This tutorial is split into four phases:
 
 4. Take power measurements & calculate per-layer energy
 	- Script to read power values from sysfs (or ina3221x@40 entry in the file system )
+	
 
 
 ## Part 1: Setting up the power measurement equipment
 ### Enable INA3221 power sensor chip on the Jetson TX1
-This consists mainly of two steps:
+This consists mainly of two steps (please refer: https://developer.ridgerun.com/wiki/index.php?title=Compiling_Tegra_X1/X2_source_code)
 
 	- Cross-compile & flash a modified linux kernel. In this step, we enable a loadable gator module and the INA3221 power sensor chip
+		1. Download Jetpack-${version} and run the installation script (I used JetPack 3.1 - L4T 28.1):
+			-chmod +x JetPack-${VERSION}.run
+			- Run JetPack-${VERSION}.run
+			
+		2. Download the kernel sources:
+			-./source_sync.sh -k tegra-l4t-r28.1 -u tegra-l4t-r28.1
+		3. Download the toolchain and set the appropriate environment variables
+			-export CROSS_COMPILE=/opt/linaro/gcc-linaro-5.5.0-2017.10-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-
+			-export CROSS32CC=/opt/linaro/gcc-linaro-5.5.0-2017.10-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc
+			-export ARCH=arm64
+		4. Clean your kernel and configuration
 
-	- Build the gator module
+			-cd $DEVDIR/64_TX1/Linux_for_Tegra_tx1/sources/kernel_source/
+			-make mrproper
+		5. Build the gator.ko module
+		- Download the gator sources from https://github.com/ARM-software/gator
+		-  cd /Downloads/Jetpack/64_TX1/Linux_for_tegra/sources/kernel_sources/driver/
+		- mkdir gator and  cp -r /path/to/gator/driver-src/* gator
+		- We have to edit Makefile and Kconfig file in kernel_sources/drivers. Edit Makefile in the kernel drivers folder and add obj-$(CONFIG_GATOR)     += gator/ to the end 
 
+		- Edit Kconfig in the kernel drivers folder and add source "drivers/gator/Kconfig" before the last endmenu.
+		6. Configure your kernel
+			- sudo apt-get install libncurses-dev (This is required only once)
+			- make menuconfig & enable CONFIG_SENSORS_INA3221=y and CONFIG_GATOR=m (Refer:  https://github.com/ARM-software/gator for further details on kernel configurations required)
+		7. Compile kernel, device tree and modules
+			- make zImage
+			- make dtbs
+			- make modules (This will create gator.ko file check kernel_sources/drivers/gator for this file)
+			
+		
 	- Modify the device tree to enable the ina3221x@40 entry 
