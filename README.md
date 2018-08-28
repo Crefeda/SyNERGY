@@ -60,9 +60,9 @@ This consists mainly of two steps (please refer: https://developer.ridgerun.com/
 			-make mrproper
 		5. Build the gator.ko module
 		- Download the gator sources from https://github.com/ARM-software/gator
-		-  cd /Downloads/Jetpack/64_TX1/Linux_for_tegra/sources/kernel_sources/driver/
+		- cd /Downloads/Jetpack/64_TX1/Linux_for_tegra/sources/kernel_sources/driver/
 		- mkdir gator and  cp -r /path/to/gator/driver-src/* gator
-		- We have to edit Makefile and Kconfig file in kernel_sources/drivers. Edit Makefile in the kernel drivers folder and add obj-$(CONFIG_GATOR)     += gator/ to the end 
+		- We have to edit Makefile and Kconfig file in kernel_sources/drivers. Edit Makefile in the kernel drivers folder and add obj-$(CONFIG_GATOR) += gator/ to the end 
 
 		- Edit Kconfig in the kernel drivers folder and add source "drivers/gator/Kconfig" before the last endmenu.
 		6. Configure your kernel
@@ -73,5 +73,14 @@ This consists mainly of two steps (please refer: https://developer.ridgerun.com/
 			- make dtbs
 			- make modules (This will create gator.ko file check kernel_sources/drivers/gator for this file)
 			
+		8. Follow steps 5- 11 in https://developer.ridgerun.com/wiki/index.php?title=Compiling_Tegra_X1/X2_source_code to make the new sources suitable for Jetpack and flash the new modified kernel.
 		
-	- Modify the device tree to enable the ina3221x@40 entry 
+		
+	- Modify the device tree to enable the ina3221x@40 entry
+		On the target Jetson TX1, in /boot/extlinux/extlinux.conf you will see configuration data for booting the board you will see it mention /boot/tegra210-jetson-tx1-p2597-2180-a01-devkit.dtb this is the dtb being used. 
+		On your host pc:
+			- sudo apt-get install device-tree-compiler
+			- copy /boot/tegra210-jetson-tx1-p2597-2180-a01-devkit.dtb to your host PC then
+			- dtc -I dtb -O dts -o tegra210-jetson-tx1-p2597-2180-a01-devkit.dts tegra210-jetson-tx1-p2597-2180-a01-devkit.dtb
+			- enable 1-0040 status = "okay"
+			- Convert it back to dtb (dtc -I dts -O dtb -o tegra210-jetson-tx1-p2597-2180-a01-devkit.dtb tegra210-jetson-tx1-p2597-2180-a01-devkit.dts) and transfer to /boot
