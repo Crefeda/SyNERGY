@@ -3,7 +3,8 @@
 This framework can be used to provide per-layer energy and performance measurements in a pre-trained Caffe/Caffe2 ConvNet model. Please cite:
 
 ## Sources
-1. Rodrigues C.F., Riley G., Lujan, M. "Fine-grained energy profiling for deep convolutional neural networks on the Jetson TX1" *University of Manchester, United Kingdom*](https://ieeexplore.ieee.org/document/8167764/)
+1. * **Rodrigues C.**, Riley G., Lujan M. (2018) SyNERGY: An energy measurement and prediction framework for Convolutional Neural Networks on Jetson TX1. Accepted at CSCE 2018: The 24th International Conference on Parallel and Distributed Processing Techniques and Applications [CSREA](https://csce.ucmss.com/cr/books/2018/LFS/CSREA2018/PDP4261.pdf) 
+
 
 #### Tested platforms: 
 - Jetson TX1: Ubuntu 16.04, Linux kernel: 4.4.38+
