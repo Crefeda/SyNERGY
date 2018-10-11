@@ -79,7 +79,7 @@ This consists mainly of two steps (please refer: https://developer.ridgerun.com/
 		8. Follow steps 5- 11 in https://developer.ridgerun.com/wiki/index.php?title=Compiling_Tegra_X1/X2_source_code to make the new sources suitable for Jetpack and flash the new modified kernel.
 		
 		
-	II) Modify the device tree to enable the ina3221x@40 entry
+	II) Modify the device tree to enable the ina3221x@40 entry (The newer Jetson TX2 has this enabled)
 		1. On the target Jetson TX1, note the dtb file being used in /boot/extlinux/extlinux.conf. 
 		2. On your host pc:
 			- sudo apt-get install device-tree-compiler
