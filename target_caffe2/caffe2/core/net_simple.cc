@@ -11,7 +11,7 @@
 #include "caffe2/core/timer.h"
 #include "caffe2/proto/caffe2.pb.h"
 #include "caffe2/utils/proto_utils.h"
-
+#include "/usr/local/DS-5_v5.28.1/sw/streamline/gator/annotate/streamline_annotate.h" //cref
 namespace caffe2 {
 
 SimpleNet::SimpleNet(
@@ -43,9 +43,21 @@ SimpleNet::SimpleNet(
 }
 
 bool SimpleNet::Run() {
+  std::cout << "Inside Run" << std::endl;// @cref
+  ANNOTATE_SETUP; //@cref
+  ANNOTATE_MARKER_COLOR_STR(ANNOTATE_GREEN, "start");//cref
   StartAllObservers();
-  VLOG(1) << "Running net " << name_;
+
+  VLOG(1) << "Running net \n " << name_;
   for (auto& op : operators_) {
+    const string& op_type = op->debug_def().type();
+    const string& print_name =
+        (op->debug_def().name().size()
+             ? op->debug_def().name()
+             : (op->debug_def().output_size() ? op->debug_def().output(0)
+                                              : "NO_OUTPUT"));
+      ANNOTATE_MARKER_COLOR_STR(ANNOTATE_BLUE, (print_name+"___"+op_type).c_str()); //@cref
+      std::cout << "Running operator_" << print_name << std::endl;// @cref
     VLOG(1) << "Running operator " << op->debug_def().name() << "("
             << op->debug_def().type() << ").";
 #ifdef CAFFE2_ENABLE_SDT
@@ -55,7 +67,9 @@ bool SimpleNet::Run() {
     const auto& net_name = name_.c_str();
     CAFFE_SDT(operator_start, net_name, op_name, op_type, op_ptr);
 #endif
+    //std::cout << "start op Run" << std::endl;// @cref
     bool res = op->Run();
+
 #ifdef CAFFE2_ENABLE_SDT
     CAFFE_SDT(operator_done, net_name, op_name, op_type, op_ptr);
 #endif
@@ -65,6 +79,7 @@ bool SimpleNet::Run() {
     }
   }
   StopAllObservers();
+  ANNOTATE_MARKER_COLOR_STR(ANNOTATE_GREEN, "end"); // @cref
   return true;
 }
 
@@ -92,6 +107,7 @@ vector<float> SimpleNet::TEST_Benchmark(
       warmup_runs,
       ".");
   for (int i = 0; i < warmup_runs; ++i) {
+
     CAFFE_ENFORCE(Run(), "Warmup run ", i, " has failed.");
   }
 

@@ -8,6 +8,11 @@ caffe2_binary_target("run_plan.cc")
 caffe2_binary_target("speed_benchmark.cc")
 caffe2_binary_target("split_db.cc")
 
+caffe2_binary_target("mobile_speedbenchmark.cc") #@cref
+
+set(STREAMLINE_DIR /usr/local/DS-5_v5.28.1/sw/streamline/examples/annotations/obj/local/arm64-v8a/objs/absolute/usr/local/DS-5_v5.28.1/sw/streamline/gator/annotate/streamline_annotate.o) #@cref
+target_link_libraries(mobile_speedbenchmark ${STREAMLINE_DIR}) #@cref
+
 caffe2_binary_target("db_throughput.cc")
 
 if (USE_CUDA)
@@ -42,6 +47,7 @@ endif()
 if (USE_OPENCV)
   caffe2_binary_target("make_image_db.cc")
   target_link_libraries(make_image_db ${OpenCV_LIBS})
+
 endif()
 
 if (USE_OBSERVERS)
